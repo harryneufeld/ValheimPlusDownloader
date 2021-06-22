@@ -21,7 +21,7 @@ namespace ValheimPlusDownloader
         private void button1_Click(object sender, EventArgs e)
         { 
             RepositoryDownloader downloader = new RepositoryDownloader();
-            downloader.DownloadRelease();
+            downloader.DownloadLatestRelease();
         }
     }
 }

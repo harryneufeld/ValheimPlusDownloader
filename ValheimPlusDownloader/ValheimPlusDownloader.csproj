@@ -6,4 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GitHub.ReleaseDownloader\src\GitHub.ReleaseDownloader\GitHub.ReleaseDownloader.csproj" />
+  </ItemGroup>
+
 </Project>

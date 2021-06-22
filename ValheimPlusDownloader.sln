@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValheimPlusDownloader", "ValheimPlusDownloader\ValheimPlusDownloader.csproj", "{B0F9D8A1-D8A2-4D3E-B766-38CFB0B81072}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "submodules", "submodules", "{8E20977C-FCDA-447B-9625-DAAD154FC997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.ReleaseDownloader", "GitHub.ReleaseDownloader\src\GitHub.ReleaseDownloader\GitHub.ReleaseDownloader.csproj", "{0A6AC07D-97EA-4C34-AB8C-C1D9114260F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{B0F9D8A1-D8A2-4D3E-B766-38CFB0B81072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0F9D8A1-D8A2-4D3E-B766-38CFB0B81072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0F9D8A1-D8A2-4D3E-B766-38CFB0B81072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6AC07D-97EA-4C34-AB8C-C1D9114260F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6AC07D-97EA-4C34-AB8C-C1D9114260F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6AC07D-97EA-4C34-AB8C-C1D9114260F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6AC07D-97EA-4C34-AB8C-C1D9114260F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A6AC07D-97EA-4C34-AB8C-C1D9114260F6} = {8E20977C-FCDA-447B-9625-DAAD154FC997}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3574BB1-8D0B-488D-8868-19E1B4DD937B}

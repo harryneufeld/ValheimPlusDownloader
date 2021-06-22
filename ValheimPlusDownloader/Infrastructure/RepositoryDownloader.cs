@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-using System.Windows.Forms;
+﻿using GitHub.ReleaseDownloader;
+using System.Net.Http;
 
 namespace ValheimPlusDownloader.Infrastructure
 {
@@ -13,19 +10,32 @@ namespace ValheimPlusDownloader.Infrastructure
 
         }
 
-        public void DownloadRelease()
+        public void DownloadLatestRelease()
         {
-            string remoteUri = "https://github.com/valheimPlus/ValheimPlus/releases/latest";
-            string fileName = "WindowsClient.zip", myStringWebResource = null;
-            // Create a new WebClient instance.
-            WebClient myWebClient = new WebClient();
-            // Concatenate the domain with the Web resource filename.
-            myStringWebResource = remoteUri + fileName;
-            Console.WriteLine("Downloading File \"{0}\" from \"{1}\" .......\n\n", fileName, myStringWebResource);
-            // Download the Web resource and save it into the current filesystem folder.
-            myWebClient.DownloadFile(new Uri(myStringWebResource), fileName);
-            Console.WriteLine("Successfully Downloaded File \"{0}\" from \"{1}\"", fileName, myStringWebResource);
-            Console.WriteLine("\nDownloaded file saved in the following file system folder:\n\t" + Application.StartupPath);
+            // create settings object
+            HttpClient httpClient = new HttpClient();
+            string author = "valheimPlus";
+            string repo = "github.ValheimPlus";
+            bool includePreRelease = true;
+            string downloadDirPath = "%TMP%";
+            IReleaseDownloaderSettings settings = new ReleaseDownloaderSettings(httpClient, author, repo, includePreRelease, downloadDirPath);
+
+            // create downloader
+            IReleaseDownloader downloader = new ReleaseDownloader(settings);
+
+            // check version
+            string currentVersion = "0.0.0";
+            bool isMostRecentVersion = downloader.IsLatestRelease(currentVersion);
+
+            // download latest github release
+            if (!isMostRecentVersion)
+            {
+                downloader.DownloadLatestRelease();
+            }
+
+            // clean up
+            downloader.DeInit();
+            httpClient.Dispose();
         }
     }
 }
