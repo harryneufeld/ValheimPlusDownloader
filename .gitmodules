@@ -1,0 +1,3 @@
+[submodule "GitHub.ReleaseDownloader"]
+	path = GitHub.ReleaseDownloader
+	url = https://github.com/kalilistic/GitHub.ReleaseDownloader
