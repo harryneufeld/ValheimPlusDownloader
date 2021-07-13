@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GitHub.ReleaseDownloader\src\GitHub.ReleaseDownloader\GitHub.ReleaseDownloader.csproj" />
+    <Reference Include="GitHub.ReleaseDownloader">
+      <HintPath>..\GitHub.ReleaseDownloader\src\GitHub.ReleaseDownloader\bin\Debug\GitHub.ReleaseDownloader.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
