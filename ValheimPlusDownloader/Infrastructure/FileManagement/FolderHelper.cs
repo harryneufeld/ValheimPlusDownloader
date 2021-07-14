@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace ValheimPlusDownloader47.Infrastructure
+namespace ValheimPlusDownloader.Infrastructure
 {
     public static class FolderHelper
     {
