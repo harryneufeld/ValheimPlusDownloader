@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ValheimPlusDownloader.Model;
 
 namespace ValheimPlusDownloader.Infrastructure
 {
@@ -15,15 +16,17 @@ namespace ValheimPlusDownloader.Infrastructure
         private bool isMostRecentVersion;
         private string valheimPath;
         private string downloadPath;
+        private InstallationType installationType;
         
         public string LatestVersion { get => this.latestVersion; }
         public string CurrentVersion { get => this.currentVersion; }
         public bool IsMostRecentVersion { get => this.isMostRecentVersion; }
 
-        public RepositoryDownloader(string valheimPath, string currentVersion = "0.0.0")
+        public RepositoryDownloader(string valheimPath, string currentVersion = "0.0.0", InstallationType installationType = InstallationType.WindowsClient)
         {
             this.valheimPath = valheimPath;
             this.currentVersion = currentVersion;
+            this.installationType = installationType;
         }
 
         public async Task<bool> DownloadLatestRelease()
@@ -70,7 +73,8 @@ namespace ValheimPlusDownloader.Infrastructure
         }
         private void ExtractFile()
         {
-            using (var zip = ZipFile.Read(Path.Combine(this.downloadPath, "WindowsClient.zip")))
+            string file = this.installationType.ToString() + ".zip";
+            using (var zip = ZipFile.Read(Path.Combine(this.downloadPath, file)))
             {
                 foreach (ZipEntry z in zip)
                     z.Extract(this.valheimPath, ExtractExistingFileAction.OverwriteSilently);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblHead = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -36,18 +36,18 @@
             this.lblVersionTitle = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnInstall = new System.Windows.Forms.Button();
+            this.cmbInstallationType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // label1
+            // lblHead
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ValheimPlus-Downloader";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblHead.AutoSize = true;
+            this.lblHead.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHead.Location = new System.Drawing.Point(12, 9);
+            this.lblHead.Name = "lblHead";
+            this.lblHead.Size = new System.Drawing.Size(204, 23);
+            this.lblHead.TabIndex = 0;
+            this.lblHead.Text = "ValheimPlus-Downloader";
             // 
             // textBox1
             // 
@@ -74,7 +74,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.btnFindValheim);
             // 
             // lblNotFound
             // 
@@ -119,11 +119,20 @@
             this.btnInstall.UseVisualStyleBackColor = true;
             this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
+            // cmbInstallationType
+            // 
+            this.cmbInstallationType.FormattingEnabled = true;
+            this.cmbInstallationType.Location = new System.Drawing.Point(121, 148);
+            this.cmbInstallationType.Name = "cmbInstallationType";
+            this.cmbInstallationType.Size = new System.Drawing.Size(169, 21);
+            this.cmbInstallationType.TabIndex = 9;
+            // 
             // Startscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 240);
+            this.Controls.Add(this.cmbInstallationType);
             this.Controls.Add(this.btnInstall);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblVersionTitle);
@@ -131,7 +140,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblHead);
             this.Name = "Startscreen";
             this.Text = "Startscreen";
             this.ResumeLayout(false);
@@ -141,7 +150,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblHead;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
@@ -149,5 +158,6 @@
         private System.Windows.Forms.Label lblVersionTitle;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Button btnInstall;
+        private System.Windows.Forms.ComboBox cmbInstallationType;
     }
 }

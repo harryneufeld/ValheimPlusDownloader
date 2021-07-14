@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using ValheimPlusDownloader.Controller.Interface;
 using ValheimPlusDownloader.Infrastructure;
+using ValheimPlusDownloader.Model;
 
 namespace ValheimPlusDownloader.Controller
 {
@@ -42,10 +43,10 @@ namespace ValheimPlusDownloader.Controller
             return valheimPath;
         }
 
-        public async Task<bool> InstallVallheimPlus(string valheimPath, string currentVersion)
+        public async Task<bool> InstallVallheimPlus(string valheimPath, string currentVersion, InstallationType installationType = InstallationType.WindowsClient)
         {
             bool success = true;
-            RepositoryDownloader dl = new RepositoryDownloader(valheimPath, currentVersion);
+            RepositoryDownloader dl = new RepositoryDownloader(valheimPath, currentVersion, installationType);
             success = await dl.DownloadLatestRelease();
 
             if (success)

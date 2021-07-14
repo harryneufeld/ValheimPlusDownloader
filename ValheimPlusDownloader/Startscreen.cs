@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ValheimPlusDownloader.Controller;
 using ValheimPlusDownloader.Controller.Interface;
+using ValheimPlusDownloader.Model;
 
 namespace ValheimPlusDownloader
 {
@@ -11,18 +12,15 @@ namespace ValheimPlusDownloader
         private string currentVersion;
         private StartscreenController controller;
         StartscreenController IView<StartscreenController>.Controller { get => this.controller; set { this.controller = value; }}
+        private InstallationType installationType;
 
         public Startscreen()
         {
             InitializeComponent();
+            cmbInstallationType.DataSource = Enum.GetValues(typeof(InstallationType));
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnFindValheim(object sender, EventArgs e)
         {
             this.valheimPath = this.FindValheimPath();
             if (!String.IsNullOrWhiteSpace(this.valheimPath))
@@ -34,6 +32,18 @@ namespace ValheimPlusDownloader
                 lblNotFound.Visible = true;
 
             this.GetCurrentVersion();
+        }
+
+        private async void btnInstall_Click(object sender, EventArgs e)
+        {
+            bool success = true;
+            Enum.TryParse<InstallationType>(cmbInstallationType.SelectedValue.ToString(), out installationType);
+            success = await this.controller.InstallVallheimPlus(this.valheimPath, this.currentVersion, installationType);
+            this.GetCurrentVersion();
+            if (success)
+                MessageBox.Show("Installation erfolgreich!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Fehler bei der Installation.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void LoadView()
@@ -66,16 +76,5 @@ namespace ValheimPlusDownloader
 
         public string FindValheimPath() =>
             this.controller.FindFolder();
-
-        private async void btnInstall_Click(object sender, EventArgs e)
-        {
-            bool success = true;
-            success = await this.controller.InstallVallheimPlus(this.valheimPath, this.currentVersion);
-            this.GetCurrentVersion();
-            if (success)
-                MessageBox.Show("Installation erfolgreich!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Fehler bei der Installation.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
     }
 }
