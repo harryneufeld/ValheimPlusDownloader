@@ -37,6 +37,7 @@ namespace ValheimPlusDownloader
         private async void btnInstall_Click(object sender, EventArgs e)
         {
             bool success = true;
+            lblWait.Visible = true;
             Enum.TryParse<InstallationType>(cmbInstallationType.SelectedValue.ToString(), out installationType);
             success = await this.controller.InstallVallheimPlus(this.valheimPath, this.currentVersion, installationType);
             this.GetCurrentVersion();
@@ -44,6 +45,7 @@ namespace ValheimPlusDownloader
                 MessageBox.Show("Installation erfolgreich!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Fehler bei der Installation.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            lblWait.Visible = false;
         }
 
         public void LoadView()

@@ -38,6 +38,7 @@
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnInstall = new System.Windows.Forms.Button();
             this.cmbInstallationType = new System.Windows.Forms.ComboBox();
+            this.lblWait = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblHead
@@ -133,11 +134,22 @@
             this.cmbInstallationType.Size = new System.Drawing.Size(169, 21);
             this.cmbInstallationType.TabIndex = 9;
             // 
+            // lblWait
+            // 
+            this.lblWait.AutoSize = true;
+            this.lblWait.Location = new System.Drawing.Point(166, 201);
+            this.lblWait.Name = "lblWait";
+            this.lblWait.Size = new System.Drawing.Size(79, 13);
+            this.lblWait.TabIndex = 10;
+            this.lblWait.Text = "PLEASE WAIT";
+            this.lblWait.Visible = false;
+            // 
             // Startscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 240);
+            this.Controls.Add(this.lblWait);
             this.Controls.Add(this.cmbInstallationType);
             this.Controls.Add(this.btnInstall);
             this.Controls.Add(this.lblVersion);
@@ -149,6 +161,7 @@
             this.Controls.Add(this.lblHead);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Startscreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ValheimPlus Installer";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,5 +179,6 @@
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Button btnInstall;
         private System.Windows.Forms.ComboBox cmbInstallationType;
+        private System.Windows.Forms.Label lblWait;
     }
 }
