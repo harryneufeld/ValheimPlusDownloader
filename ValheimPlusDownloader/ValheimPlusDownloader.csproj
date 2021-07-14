@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_blue-162.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
@@ -93,10 +96,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GitHub.ReleaseDownloader\src\GitHub.ReleaseDownloader\GitHub.ReleaseDownloader.csproj">
-      <Project>{0a6ac07d-97ea-4c34-ab8c-c1d9114260f6}</Project>
-      <Name>GitHub.ReleaseDownloader</Name>
+    <ProjectReference Include="..\GithubRepositoryDownloader\GithubRepositoryDownloader.csproj">
+      <Project>{044ce7b1-b9b5-4111-8025-55b36cc3521a}</Project>
+      <Name>GithubRepositoryDownloader</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo_blue-162.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

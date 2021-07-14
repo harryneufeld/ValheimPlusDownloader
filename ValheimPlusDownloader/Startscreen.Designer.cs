@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Startscreen));
             this.lblHead = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +52,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(16, 81);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(351, 20);
@@ -89,6 +92,7 @@
             // 
             // lblVersionTitle
             // 
+            this.lblVersionTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblVersionTitle.AutoSize = true;
             this.lblVersionTitle.Location = new System.Drawing.Point(13, 217);
             this.lblVersionTitle.Name = "lblVersionTitle";
@@ -98,7 +102,7 @@
             // 
             // lblVersion
             // 
-            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVersion.AutoSize = true;
             this.lblVersion.Location = new System.Drawing.Point(369, 217);
             this.lblVersion.Name = "lblVersion";
@@ -121,6 +125,8 @@
             // 
             // cmbInstallationType
             // 
+            this.cmbInstallationType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbInstallationType.FormattingEnabled = true;
             this.cmbInstallationType.Location = new System.Drawing.Point(121, 148);
             this.cmbInstallationType.Name = "cmbInstallationType";
@@ -141,8 +147,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblHead);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Startscreen";
-            this.Text = "Startscreen";
+            this.Text = "ValheimPlus Installer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
