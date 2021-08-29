@@ -62,7 +62,9 @@ namespace ValheimPlusDownloader.Infrastructure
             if (success)
             {
                 this.latestVersion = downloader.LatestVersion;
-                this.ExtractFile();
+
+                if (!isMostRecentVersion)
+                    this.ExtractFile();
             }
 
             // clean up
